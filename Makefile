@@ -1,5 +1,6 @@
 SO_LONG			=	so_long
-SRCS			=	so_long_main.c
+SRCS			=	so_long_main.c\
+					so_long_init.c
 OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc

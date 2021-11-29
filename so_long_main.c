@@ -1,58 +1,42 @@
-//#include <X11/Xlib.h>
-//#include <sys/ipc.h>
-//#include <sys/shm.h>
-//#include <X11/extensions/XShm.h>
-#include "mlx.h"
+#include "so_long.h"
 
-typedef struct	s_data
+int		deal_key(int key_code, t_game *game)
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-
-int main(void)
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		img_width;
-	int		img_height;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 64, 64, "Hello, minilibX!!");
-	img = mlx_xpm_file_to_image(mlx, "../texture/eagle.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(mlx, win, img, 0, 0);
-	mlx_loop(mlx);
+	if (key_code == KEY_ESC)
+		exit(0);
 	return (0);
 }
 
-
-
-
-/*nt main(void)
+int		close(t_game *game)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	exit(0);
+}
 
+/*int		main_loop(t_game *game)
+{
+	t_img	imgs[2];
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 500, 500, "Hello, minilibX!!");
-	img.img = mlx_new_image(mlx, 500, 500);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	imgs[0].img = mlx_xpm_file_to_image(game->mlx, "../texture/eagle.xpm", &imgs[0].width, &imgs[0].height);
+	imgs[1].img = mlx_xpm_file_to_image(game->mlx, "../texture/greystone.xpm", &imgs[1].width, &imgs[1].height);
+	mlx_put_image_to_window(game->mlx, game->win, imgs[0].img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, imgs[1].img, 0, 64);
+	return (0);
 }*/
+
+int main(void)
+{
+	t_game	game;
+	t_img	img;
+
+	game_init(&game);
+	window_init(&game);
+
+	img.img = mlx_xpm_file_to_image(game.mlx, "../texture/eagle.xpm", &img.width, &img.height);
+	mlx_put_image_to_window(game.mlx, game.win, img.img, 0, 64);
+
+	//mlx_hook(game.win, X_EVENT_KEY_PRESS, 0, &deal_key, &game);
+	//mlx_hook(game.win, X_EVENT_KEY_EXIT, 0, &close, &game);
+
+	mlx_loop(game.mlx);
+	return (0);
+}
