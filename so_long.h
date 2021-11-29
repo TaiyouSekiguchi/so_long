@@ -21,19 +21,26 @@ typedef enum	e_map
 	HEIGHT = ROW * TILE_SIZE,
 }				t_map;
 
+typedef struct	s_player
+{
+	int			x;
+	int			y;
+}				t_player;
+
 typedef struct	s_img
 {
-	void	*img;
-	int		width;
-	int		height;
+	void		*img;
+	int			width;
+	int			height;
 }				t_img;
 
 typedef struct	s_game
 {
-	void	*mlx;
-	void	*win;
-	t_img	imgs[3];
-	int		map[ROW][COL];
+	void		*mlx;
+	void		*win;
+	t_player	player;
+	t_img		imgs[3];
+	int			map[ROW][COL];
 }				t_game;
 
 void	game_init(t_game *game);
