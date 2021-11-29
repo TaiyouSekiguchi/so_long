@@ -14,9 +14,15 @@ int	deal_key(int key, t_game *game)
 	}
 }
 
-int	close(int key, t_game *game)
+int	my_close(int key, t_game *game)
 {
 	exit(0);
+	return (0);
+}
+
+int	render_next_frame(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx, game->win, game->imgs[0].img, 64, 64);
 	return (0);
 }
 
@@ -28,16 +34,9 @@ int	main(void)
 	window_init(&game);
 	img_init(&game);
 
-	//mlx_key_hook(game.win, &deal_key, (void *)0);
-	//mlx_hook(game.win, 2, 0, &deal_key, &game);
-
-	//mlx_put_image_to_window(game.mlx, game.win, game.img[0].img, 0, 0);
-	//mlx_put_image_to_window(game.mlx, game.win, game.img[0].img, 0, 64);
-	//mlx_put_image_to_window(game.mlx, game.win, game.img[1].img, 64, 0);
-	//mlx_put_image_to_window(game.mlx, game.win, game.img[2].img, 64, 64);
-
-	mlx_hook(game.win, X_EVENT_DESTROY_NOTIFY, 1L<<0, &close, &game);
+	mlx_hook(game.win, X_EVENT_DESTROY_NOTIFY, 1L<<17, &my_close, &game);
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 1L<<0, &deal_key, &game);
+	mlx_loop_hook(game.mlx, render_next_frame, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }
