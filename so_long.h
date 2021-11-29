@@ -6,7 +6,11 @@
 # include "mlx.h"
 
 # define X_EVENT_KEY_PRESS 2
-# define X_EVENT_KEY_EXIT 17
+# define X_EVENT_DESTROY_NOTIFY 17
+# define NO_EVENT_MASK 0L
+
+# define KEY_ESC 0xff1b
+
 
 typedef enum	e_map
 {
@@ -16,11 +20,6 @@ typedef enum	e_map
 	WIDTH = COL * TILE_SIZE,
 	HEIGHT = ROW * TILE_SIZE,
 }				t_map;
-
-typedef	enum	e_key
-{
-	KEY_ESC = 9,
-}				t_key;
 
 typedef struct	s_img
 {
