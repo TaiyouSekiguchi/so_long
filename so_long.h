@@ -33,7 +33,7 @@ typedef struct	s_game
 {
 	void	*mlx;
 	void	*win;
-	t_img	img;
+	t_img	img[2];
 	int		map[ROW][COL];
 }				t_game;
 
