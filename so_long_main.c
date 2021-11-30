@@ -1,58 +1,55 @@
-//#include <X11/Xlib.h>
-//#include <sys/ipc.h>
-//#include <sys/shm.h>
-//#include <X11/extensions/XShm.h>
-#include "mlx.h"
+#include "so_long.h"
 
-typedef struct	s_data
+void	ft_putchar(char c)
 {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
+	write(1, &c, 1);
 }
 
-
-int main(void)
+int	deal_key(int key, t_game *game)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		img_width;
-	int		img_height;
+	if (key == 0xff1b)
+	{
+		mlx_destroy_window(game->mlx, game->win);
+		exit(0);
+	}
+}
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 64, 64, "Hello, minilibX!!");
-	img = mlx_xpm_file_to_image(mlx, "../texture/eagle.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(mlx, win, img, 0, 0);
-	mlx_loop(mlx);
+int	my_close(int key, t_game *game)
+{
+	exit(0);
 	return (0);
 }
 
-
-
-
-/*nt main(void)
+int	render_next_frame(t_game *game)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	size_t	i;
+	size_t	j;
 
+	i = 0;
+	while (i < ROW)
+	{
+		j = 0;
+		while (j < COL)
+		{
+			mlx_put_image_to_window(game->mlx, game->win, game->imgs[game->map[i][j]].img, j * 64, i * 64);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 500, 500, "Hello, minilibX!!");
-	img.img = mlx_new_image(mlx, 500, 500);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
-}*/
+int	main(void)
+{
+	t_game	game;
+
+	game_init(&game);
+	window_init(&game);
+	img_init(&game);
+
+	mlx_hook(game.win, X_EVENT_DESTROY_NOTIFY, 1L<<17, &my_close, &game);
+	mlx_hook(game.win, X_EVENT_KEY_PRESS, 1L<<0, &deal_key, &game);
+	mlx_loop_hook(game.mlx, render_next_frame, &game);
+	mlx_loop(game.mlx);
+	return (0);
+}
