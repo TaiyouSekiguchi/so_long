@@ -3,10 +3,11 @@
 void	game_init(t_game *game)
 {
 	int	map[ROW][COL] = {
-		{1, 1, 1, 1},
-		{1, 0, 0, 1},
-		{1, 0, 0, 1},
-		{1, 1, 1, 1}
+		{1, 1, 1, 1, 1},
+		{1, 0, 0, 0, 1},
+		{1, 0, 0, 0, 1},
+		{1, 0, 0, 0, 1},
+		{1, 1, 1, 1, 1},
 	};
 	memcpy(game->map, map, sizeof(int) * ROW * COL);
 }

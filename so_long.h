@@ -15,8 +15,8 @@
 typedef enum	e_map
 {
 	TILE_SIZE = 64,
-	ROW = 4,
-	COL = 4,
+	ROW = 5,
+	COL = 5,
 	WIDTH = COL * TILE_SIZE,
 	HEIGHT = ROW * TILE_SIZE,
 }				t_map;
