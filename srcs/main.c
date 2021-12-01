@@ -11,7 +11,7 @@ int	main(int argc, char *argv[])
 	map_create(&game.map, list);
 	map_put(&game.map);
 	map_check(&game.map);
-	/*window_init(&game);
+	window_init(&game);
 	img_init(&game);
 
 	mlx_hook(game.win, X_EVENT_DESTROY_NOTIFY, 1L<<17, &click_cross_mark, &game);
@@ -19,6 +19,6 @@ int	main(int argc, char *argv[])
 
 	mlx_loop_hook(game.mlx, render_next_frame, &game);
 
-	mlx_loop(game.mlx);*/
+	mlx_loop(game.mlx);
 	return (0);
 }
