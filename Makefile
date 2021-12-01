@@ -7,7 +7,8 @@ SRCS			=	main.c\
 					get_next_line.c\
 					get_next_line_utils.c\
 					error.c\
-					map.c\
+					map_create.c\
+					map_check.c\
 					read_file.c
 
 OBJS			=	$(SRCS:.c=.o)
