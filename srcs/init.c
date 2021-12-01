@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void	game_init(t_game *game)
+/*void	game_init(t_game *game)
 {
 	int	map[ROW][COL] = {
 		{1, 1, 1, 1, 1},
@@ -10,12 +10,17 @@ void	game_init(t_game *game)
 		{1, 1, 1, 1, 1},
 	};
 	memcpy(game->map, map, sizeof(int) * ROW * COL);
-}
+}*/
 
 void	window_init(t_game *game)
 {
+	int	width;
+	int	height;
+
+	width = game->map.col * TILE_SIZE;
+	height = game->map.row * TILE_SIZE;
 	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "mlx 42");
+	game->win = mlx_new_window(game->mlx, width, height, "mlx 42");
 }
 
 void	img_init(t_game *game)

@@ -3,7 +3,13 @@ SRCS			=	main.c\
 					init.c\
 					click_cross_mark.c\
 					deal_key.c\
-					render_next_frame.c
+					render_next_frame.c\
+					get_next_line.c\
+					get_next_line_utils.c\
+					error.c\
+					map.c\
+					read_file.c
+
 OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc
