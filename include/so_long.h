@@ -36,17 +36,24 @@ typedef struct	s_player
 typedef struct	s_img
 {
 	void		*img;
+	char		*addr;
+	int			*data;
 	int			width;
 	int			height;
+	int			bpp;
+	int			line_len;
+	int			endian;
 }				t_img;
 
 typedef struct	s_game
 {
-	void		*mlx;
-	void		*win;
-	t_map		map;
-	t_player	player;
-	t_img		imgs[5];
+	void			*mlx;
+	void			*win;
+	t_map			map;
+	t_player		player;
+	t_img			img;
+	t_img			texs[5];
+	unsigned int	tex_color[5][TILE_SIZE * TILE_SIZE];
 }				t_game;
 
 void	game_init(t_game *game);

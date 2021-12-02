@@ -4,6 +4,8 @@ int	render_next_frame(t_game *game)
 {
 	size_t	i;
 	size_t	j;
+	unsigned int	color;
+
 
 	i = 0;
 	while (i < game->map.row)
@@ -11,7 +13,7 @@ int	render_next_frame(t_game *game)
 		j = 0;
 		while (j < game->map.col)
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->imgs[game->map.map[i][j]].img, j * TILE_SIZE, i * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win, game->texs[game->map.map[i][j]].img, j * TILE_SIZE, i * TILE_SIZE);
 			j++;
 		}
 		i++;

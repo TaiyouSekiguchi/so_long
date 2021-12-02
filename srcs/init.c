@@ -1,17 +1,5 @@
 #include "so_long.h"
 
-/*void	game_init(t_game *game)
-{
-	int	map[ROW][COL] = {
-		{1, 1, 1, 1, 1},
-		{1, 0, 0, 0, 1},
-		{1, 0, 0, 0, 1},
-		{1, 0, 0, 0, 1},
-		{1, 1, 1, 1, 1},
-	};
-	memcpy(game->map, map, sizeof(int) * ROW * COL);
-}*/
-
 void	window_init(t_game *game)
 {
 	int	width;
@@ -25,14 +13,29 @@ void	window_init(t_game *game)
 
 void	img_init(t_game *game)
 {
-	game->imgs[0].img = mlx_xpm_file_to_image(game->mlx, "./texture/grass.xpm", &game->imgs[0].width, &game->imgs[0].height);
-	printf("%p\n", game->imgs[0].img);
-	game->imgs[1].img = mlx_xpm_file_to_image(game->mlx, "./texture/flower.xpm", &game->imgs[1].width, &game->imgs[1].height);
-	printf("%p\n", game->imgs[1].img);
-	game->imgs[2].img = mlx_xpm_file_to_image(game->mlx, "./texture/collective_close.xpm", &game->imgs[2].width, &game->imgs[2].height);
-	printf("%p\n", game->imgs[2].img);
-	game->imgs[3].img = mlx_xpm_file_to_image(game->mlx, "./texture/goal.xpm", &game->imgs[3].width, &game->imgs[3].height);
-	printf("%p\n", game->imgs[3].img);
-	game->imgs[4].img = mlx_xpm_file_to_image(game->mlx, "./texture/player.xpm", &game->imgs[4].width, &game->imgs[4].height);
-	printf("%p\n", game->imgs[4].img);
+	int	i;
+	int	j;
+
+	game->texs[0].img = mlx_xpm_file_to_image(game->mlx, "./texture/grass.xpm", &game->texs[0].width, &game->texs[0].height);
+	game->texs[0].data = (int *)mlx_get_data_addr(game->texs[0].img, &game->texs[0].bpp, &game->texs[0].line_len, &game->texs[0].endian);
+	game->texs[1].img = mlx_xpm_file_to_image(game->mlx, "./texture/flower.xpm", &game->texs[1].width, &game->texs[1].height);
+	game->texs[1].data = (int *)mlx_get_data_addr(game->texs[1].img, &game->texs[1].bpp, &game->texs[1].line_len, &game->texs[1].endian);
+	game->texs[2].img = mlx_xpm_file_to_image(game->mlx, "./texture/collective.xpm", &game->texs[2].width, &game->texs[2].height);
+	game->texs[2].data = (int *)mlx_get_data_addr(game->texs[2].img, &game->texs[2].bpp, &game->texs[2].line_len, &game->texs[2].endian);
+	game->texs[3].img = mlx_xpm_file_to_image(game->mlx, "./texture/goal.xpm", &game->texs[3].width, &game->texs[3].height);
+	game->texs[3].data = (int *)mlx_get_data_addr(game->texs[3].img, &game->texs[3].bpp, &game->texs[3].line_len, &game->texs[3].endian);
+	game->texs[4].img = mlx_xpm_file_to_image(game->mlx, "./texture/player.xpm", &game->texs[4].width, &game->texs[4].height);
+	game->texs[4].data = (int *)mlx_get_data_addr(game->texs[4].img, &game->texs[4].bpp, &game->texs[4].line_len, &game->texs[4].endian);
+
+	i = 0;
+	while (i < 5)
+	{
+		j = 0;
+		while (j < TILE_SIZE * TILE_SIZE)
+		{
+			game->tex_color[i][j] = game->texs[i].data[j];
+			j++;
+		}
+		i++;
+	}
 }
