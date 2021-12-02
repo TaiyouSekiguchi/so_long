@@ -47,22 +47,19 @@ void	map_modify(t_game *game, int dx, int dy)
 		}
 		else if (game->map.map[game->player.y + dy][game->player.x + dx] == 3)
 		{
+			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+			save = 3;
 			if (game->c_cnt == 0)
-			{
-				game->map.map[game->player.y + dy][game->player.x + dx] = 3;
 				clear_flag = 1;
-			}
-			else
-			{
-				game->map.map[game->player.y + dy][game->player.x + dx] = 4;
-				save = 3;
-			}
 		}
 	}
 	cmd_cnt++;
 	command_count_put(cmd_cnt);
 	if (clear_flag == 1)
+	{
+		game->map.map[game->player.y + dy][game->player.x + dx] = 3;
 		ft_putendl_fd("Congratulation!!", STDOUT_FILENO);
+	}
 }
 
 int	deal_key(int key, t_game *game)
