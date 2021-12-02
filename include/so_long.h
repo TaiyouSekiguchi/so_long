@@ -24,6 +24,13 @@
 
 # define TILE_SIZE 32
 
+# define GRASS			"./texture/grass.xpm"
+# define FLOWER			"./texture/flower.xpm"
+# define COLLECTIVE		"./texture/collective.xpm"
+# define GOAL			"./texture/goal.xpm"
+# define PLAYER			"./texture/player.xpm"
+
+
 typedef struct s_map
 {
 	int			**map;
@@ -64,7 +71,7 @@ int		render_next_frame(t_game *game);
 void	my_error(char *msg);
 int		map_create(t_map *map, t_list *list);
 void	map_put(t_map *map);
-void	map_check(t_game *game);
+void	map_check(t_game *game, int c_cnt, int e_cnt, int p_cnt);
 void	read_file(t_list **list, char *file_path);
 void	command_count_put(int command_count);
 

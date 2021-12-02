@@ -19,7 +19,7 @@ static void	first_or_last_col_check(int *map, int col)
 		my_error("map is not closed");
 }
 
-static void	count_check(int	c_cnt, int e_cnt, int p_cnt)
+static void	count_check(int c_cnt, int e_cnt, int p_cnt)
 {
 	if (c_cnt < 1)
 		my_error("Error\nno collective");
@@ -29,17 +29,21 @@ static void	count_check(int	c_cnt, int e_cnt, int p_cnt)
 		my_error("Error\nplayer is not correct");
 }
 
-void	map_check(t_game *game)
+static void	map_count(int map, int *c_cnt, int *e_cnt, int *p_cnt)
 {
-	int	c_cnt;
-	int	e_cnt;
-	int	p_cnt;
+	if (map == 2)
+		*c_cnt += 1;
+	else if (map == 3)
+		*e_cnt += 1;
+	else if (map == 4)
+		*p_cnt += 1;
+}
+
+void	map_check(t_game *game, int c_cnt, int e_cnt, int p_cnt)
+{
 	int	i;
 	int	j;
 
-	c_cnt = 0;
-	e_cnt = 0;
-	p_cnt = 0;
 	i = 0;
 	while (i < game->map.row)
 	{
@@ -51,12 +55,7 @@ void	map_check(t_game *game)
 			j = 0;
 			while (j < game->map.col)
 			{
-				if (game->map.map[i][j] == 2)
-					c_cnt++;
-				else if (game->map.map[i][j] == 3)
-					e_cnt++;
-				else if (game->map.map[i][j] == 4)
-					p_cnt++;
+				map_count(game->map.map[i][j], &c_cnt, &e_cnt, &p_cnt);
 				j++;
 			}
 		}

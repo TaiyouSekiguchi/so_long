@@ -9,7 +9,8 @@ int	main(int argc, char *argv[])
 		my_error("Usaga: ./so_long file_name.ber");
 	read_file(&list, argv[1]);
 	map_create(&game.map, list);
-	map_check(&game);
+	ft_lstclear(&list, free);
+	map_check(&game, 0, 0 ,0);
 	window_init(&game);
 	img_init(&game);
 	mlx_hook(game.win, DESTROY_NOTIFY, 1L<<17, &click_cross_mark, &game);
