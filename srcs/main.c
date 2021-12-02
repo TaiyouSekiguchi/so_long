@@ -22,8 +22,7 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.win, X_EVENT_KEY_PRESS, 1L<<0, &deal_key, &game);
 	printf("mlx_hook OK\n");
 
-	mlx_loop_hook(game.mlx, render_next_frame, &game);
-	printf("mlx_loop_hook OK\n");
+	render_next_frame(&game);
 
 	mlx_loop(game.mlx);
 	printf("mlx_loop OK\n");

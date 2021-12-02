@@ -17,6 +17,10 @@
 # define NO_EVENT_MASK 0L
 
 # define KEY_ESC 0xff1b
+# define KEY_W 0x77
+# define KEY_S 0x73
+# define KEY_A 0x61
+# define KEY_D 0x64
 
 # define TILE_SIZE 32
 
