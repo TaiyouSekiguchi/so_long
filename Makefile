@@ -9,7 +9,8 @@ SRCS			=	main.c\
 					error.c\
 					map_create.c\
 					map_check.c\
-					read_file.c
+					read_file.c\
+					command_count_put.c
 
 OBJS			=	$(SRCS:.c=.o)
 

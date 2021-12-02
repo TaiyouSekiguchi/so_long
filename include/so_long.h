@@ -12,8 +12,8 @@
 # include "libft.h"
 # include "get_next_line.h"
 
-# define X_EVENT_KEY_PRESS 2
-# define X_EVENT_DESTROY_NOTIFY 17
+# define DESTROY_NOTIFY 17
+# define KEY_PRESS 2
 # define NO_EVENT_MASK 0L
 
 # define KEY_ESC 0xff1b
@@ -40,13 +40,8 @@ typedef struct	s_player
 typedef struct	s_img
 {
 	void		*img;
-	char		*addr;
-	int			*data;
 	int			width;
 	int			height;
-	int			bpp;
-	int			line_len;
-	int			endian;
 }				t_img;
 
 typedef struct	s_game
@@ -57,7 +52,7 @@ typedef struct	s_game
 	t_player		player;
 	t_img			img;
 	t_img			texs[5];
-	unsigned int	tex_color[5][TILE_SIZE * TILE_SIZE];
+	int				c_cnt;
 }				t_game;
 
 void	game_init(t_game *game);
@@ -69,7 +64,8 @@ int		render_next_frame(t_game *game);
 void	my_error(char *msg);
 int		map_create(t_map *map, t_list *list);
 void	map_put(t_map *map);
-void	map_check(t_map *map);
+void	map_check(t_game *game);
 void	read_file(t_list **list, char *file_path);
+void	command_count_put(int command_count);
 
 #endif

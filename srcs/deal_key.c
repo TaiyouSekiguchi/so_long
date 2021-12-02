@@ -25,14 +25,48 @@ void	get_player(t_game *game)
 
 void	map_modify(t_game *game, int dx, int dy)
 {
+	static int	save;
+	static int	cmd_cnt;
+	static int	clear_flag;
+
+	if (clear_flag == 1)
+		return ;
 	if (game->map.map[game->player.y + dy][game->player.x + dx] != 1)
 	{
-		game->map.map[game->player.y][game->player.x] = 0;
-		game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+		if (game->map.map[game->player.y + dy][game->player.x + dx] == 0)
+		{
+			game->map.map[game->player.y][game->player.x] = save;
+			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+			save = 0;
+		}
+		if (game->map.map[game->player.y + dy][game->player.x + dx] == 2)
+		{
+			game->c_cnt--;
+			game->map.map[game->player.y][game->player.x] = save;
+			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+			save = 0;
+		}
+		else if (game->map.map[game->player.y + dy][game->player.x + dx] == 3)
+		{
+			if (game->c_cnt == 0)
+			{
+				game->map.map[game->player.y][game->player.x] = save;
+				game->map.map[game->player.y + dy][game->player.x + dx] = 3;
+				clear_flag = 1;
+			}
+			else
+			{
+				game->map.map[game->player.y][game->player.x] = save;
+				game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+				save = 3;
+			}
+		}
 	}
+	cmd_cnt++;
+	command_count_put(cmd_cnt);
+	if (clear_flag == 1)
+		ft_putendl_fd("Congratulation!!", STDOUT_FILENO);
 }
-
-
 
 int	deal_key(int key, t_game *game)
 {
