@@ -36,22 +36,20 @@ void	map_modify(t_game *game, int dx, int dy)
 		game->map.map[game->player.y][game->player.x] = save;
 		if (game->map.map[game->player.y + dy][game->player.x + dx] == 0)
 		{
-			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
 			save = 0;
 		}
 		if (game->map.map[game->player.y + dy][game->player.x + dx] == 2)
 		{
 			game->c_cnt--;
-			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
 			save = 0;
 		}
 		else if (game->map.map[game->player.y + dy][game->player.x + dx] == 3)
 		{
-			game->map.map[game->player.y + dy][game->player.x + dx] = 4;
 			save = 3;
 			if (game->c_cnt == 0)
 				clear_flag = 1;
 		}
+		game->map.map[game->player.y + dy][game->player.x + dx] = 4;
 	}
 	cmd_cnt++;
 	command_count_put(cmd_cnt);
