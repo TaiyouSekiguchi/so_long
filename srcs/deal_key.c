@@ -34,16 +34,13 @@ void	map_modify(t_game *game, int dx, int dy)
 	if (game->map.map[game->player.y + dy][game->player.x + dx] != 1)
 	{
 		game->map.map[game->player.y][game->player.x] = save;
-		if (game->map.map[game->player.y + dy][game->player.x + dx] == 0)
+		if (game->map.map[game->player.y + dy][game->player.x + dx] != 3)
 		{
 			save = 0;
+			if (game->map.map[game->player.y + dy][game->player.x + dx] == 2)
+				game->c_cnt--;
 		}
-		if (game->map.map[game->player.y + dy][game->player.x + dx] == 2)
-		{
-			game->c_cnt--;
-			save = 0;
-		}
-		else if (game->map.map[game->player.y + dy][game->player.x + dx] == 3)
+		else
 		{
 			save = 3;
 			if (game->c_cnt == 0)
