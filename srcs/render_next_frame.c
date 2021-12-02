@@ -11,10 +11,11 @@ int	render_next_frame(t_game *game)
 		j = 0;
 		while (j < game->map.col)
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->imgs[game->map.map[i][j]].img, j * 64, i * 64);
+			mlx_put_image_to_window(game->mlx, game->win, game->imgs[game->map.map[i][j]].img, j * TILE_SIZE, i * TILE_SIZE);
 			j++;
 		}
 		i++;
 	}
+
 	return (0);
 }

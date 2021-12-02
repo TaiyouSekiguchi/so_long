@@ -18,7 +18,7 @@
 
 # define KEY_ESC 0xff1b
 
-# define TILE_SIZE 64
+# define TILE_SIZE 32
 
 typedef struct s_map
 {
@@ -46,7 +46,7 @@ typedef struct	s_game
 	void		*win;
 	t_map		map;
 	t_player	player;
-	t_img		imgs[3];
+	t_img		imgs[5];
 }				t_game;
 
 void	game_init(t_game *game);
