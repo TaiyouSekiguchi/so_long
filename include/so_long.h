@@ -26,10 +26,18 @@
 
 # define GRASS			"./texture/grass.xpm"
 # define FLOWER			"./texture/flower.xpm"
-# define COLLECTIVE		"./texture/collective.xpm"
+# define TREASURE		"./texture/treasure.xpm"
 # define GOAL			"./texture/goal.xpm"
-# define PLAYER			"./texture/player.xpm"
+# define HERO			"./texture/hero.xpm"
 
+typedef enum e_mapinfo
+{
+	EMPTY = 0,
+	WALL,
+	COLLECTIBLE,
+	EXIT,
+	PLAYER,
+}			t_mapinfo;
 
 typedef struct s_map
 {
@@ -62,14 +70,16 @@ typedef struct	s_game
 	int				c_cnt;
 }				t_game;
 
+int		extension_check(char *file_path);
 void	game_init(t_game *game);
 void	window_init(t_game *game);
-void	img_init(t_game *game);
+void	img_init(t_img texs[], void *mlx);
 int		click_cross_mark(int key, t_game *game);
 int		deal_key(int key, t_game *game);
 int		render_next_frame(t_game *game);
 void	my_error(char *msg);
-int		map_create(t_map *map, t_list *list);
+void	printf_error(void);
+void	map_create(t_map *map, t_list *list);
 void	map_put(t_map *map);
 void	map_check(t_game *game, int c_cnt, int e_cnt, int p_cnt);
 void	read_file(t_list **list, char *file_path);

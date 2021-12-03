@@ -52,7 +52,7 @@ void	map_modify(t_game *game, int dx, int dy)
 	if (clear_flag == 1)
 	{
 		game->map.map[game->player.y + dy][game->player.x + dx] = 3;
-		ft_putendl_fd("Congratulation!!", STDOUT_FILENO);
+		ft_putendl_fd("Teleported to the next map...!!", STDOUT_FILENO);
 	}
 }
 

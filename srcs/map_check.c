@@ -8,7 +8,7 @@ static void	first_or_last_row_check(int *map, int col)
 	while (i < col)
 	{
 		if (map[i] != 1)
-			my_error("map is not closed");
+			my_error("Error\nMap is not closed");
 		i++;
 	}
 }
@@ -16,26 +16,26 @@ static void	first_or_last_row_check(int *map, int col)
 static void	first_or_last_col_check(int *map, int col)
 {
 	if (map[0] != 1 || map[col - 1] != 1)
-		my_error("map is not closed");
+		my_error("Error\nMap is not closed");
 }
 
 static void	count_check(int c_cnt, int e_cnt, int p_cnt)
 {
 	if (c_cnt < 1)
-		my_error("Error\nno collective");
-	if (e_cnt != 1)
-		my_error("Error\nexit is not correct");
+		my_error("Error\nNo collectible in map");
+	if (e_cnt < 1)
+		my_error("Error\nNO exit in map");
 	if (p_cnt != 1)
-		my_error("Error\nplayer is not correct");
+		my_error("Error\nPlayer is incorrect in map");
 }
 
 static void	map_count(int map, int *c_cnt, int *e_cnt, int *p_cnt)
 {
-	if (map == 2)
+	if (map == COLLECTIBLE)
 		*c_cnt += 1;
-	else if (map == 3)
+	else if (map == EXIT)
 		*e_cnt += 1;
-	else if (map == 4)
+	else if (map == PLAYER)
 		*p_cnt += 1;
 }
 

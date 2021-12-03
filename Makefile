@@ -1,6 +1,7 @@
 SO_LONG			=	so_long
 SRCS			=	main.c\
-					init.c\
+					window_init.c\
+					img_init.c\
 					click_cross_mark.c\
 					deal_key.c\
 					render_next_frame.c\
@@ -9,8 +10,10 @@ SRCS			=	main.c\
 					error.c\
 					map_create.c\
 					map_check.c\
+					map_put.c\
 					read_file.c\
-					command_count_put.c
+					command_count_put.c\
+					extension_check.c
 
 OBJS			=	$(SRCS:.c=.o)
 
