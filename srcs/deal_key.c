@@ -6,34 +6,11 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:19:21 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 16:30:10 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:57:26 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static void	get_player(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < game->map.row)
-	{
-		j = 0;
-		while (j < game->map.col)
-		{
-			if (game->map.map[i][j] == PLAYER)
-			{
-				game->player.x = j;
-				game->player.y = i;
-				return ;
-			}
-			j++;
-		}
-		i++;
-	}
-}
 
 static void	map_save(int *map, int *save, int *c_cnt, int *clear)
 {
@@ -69,6 +46,8 @@ static void	map_modify(t_game *game, int dx, int dy)
 		game->map.map[game->player.y][game->player.x] = save;
 		map_save(&game->map.map[next_y][next_x], &save, &game->c_cnt, &clear);
 		game->map.map[next_y][next_x] = PLAYER;
+		game->player.x = game->player.x + dx;
+		game->player.y = game->player.y + dy;
 		command_count_put();
 	}
 	clear_check(clear, &game->map.map[next_y][next_x]);
@@ -76,7 +55,7 @@ static void	map_modify(t_game *game, int dx, int dy)
 
 int	deal_key(int key, t_game *game)
 {
-	get_player(game);
+	//get_player(game);
 	if (key == KEY_ESC)
 		game_exit(game);
 	else if (key == KEY_W)

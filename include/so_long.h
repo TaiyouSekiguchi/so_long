@@ -86,5 +86,6 @@ void	map_check(t_game *game, int c_cnt, int e_cnt, int p_cnt);
 void	read_file(t_list **list, char *file_path);
 void	command_count_put(void);
 void	clear_check(int clear, int *finish_position);
+void	get_player(t_game *game);
 
 #endif

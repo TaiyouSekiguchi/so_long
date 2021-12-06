@@ -14,7 +14,8 @@ SRCS			=	main.c\
 					read_file.c\
 					command_count_put.c\
 					extension_check.c\
-					clear_check.c
+					clear_check.c\
+					get_player.c
 
 OBJS			=	$(SRCS:.c=.o)
 
