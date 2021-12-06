@@ -74,7 +74,7 @@ int		extension_check(char *file_path);
 void	game_init(t_game *game);
 void	window_init(t_game *game);
 void	img_init(t_img texs[], void *mlx);
-int		click_cross_mark(int key, t_game *game);
+int		game_exit(t_game *game);
 int		deal_key(int key, t_game *game);
 int		render_next_frame(t_game *game);
 void	my_error(char *msg);

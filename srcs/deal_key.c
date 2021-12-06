@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void	get_player(t_game *game)
+static void	get_player(t_game *game)
 {
 	int	i;
 	int	j;
@@ -23,7 +23,7 @@ void	get_player(t_game *game)
 	}
 }
 
-void	map_modify(t_game *game, int dx, int dy)
+static void	map_modify(t_game *game, int dx, int dy)
 {
 	static int	save;
 	static int	cmd_cnt;
@@ -60,10 +60,7 @@ int	deal_key(int key, t_game *game)
 {
 	get_player(game);
 	if (key == KEY_ESC)
-	{
-		mlx_destroy_window(game->mlx, game->win);
-		exit(0);
-	}
+		game_exit(game);
 	else if (key == KEY_W)
 		map_modify(game, 0, -1);
 	else if (key == KEY_S)

@@ -2,7 +2,7 @@ SO_LONG			=	so_long
 SRCS			=	main.c\
 					window_init.c\
 					img_init.c\
-					click_cross_mark.c\
+					game_exit.c\
 					deal_key.c\
 					render_next_frame.c\
 					get_next_line.c\
