@@ -13,7 +13,8 @@ SRCS			=	main.c\
 					map_put.c\
 					read_file.c\
 					command_count_put.c\
-					extension_check.c
+					extension_check.c\
+					clear_check.c
 
 OBJS			=	$(SRCS:.c=.o)
 

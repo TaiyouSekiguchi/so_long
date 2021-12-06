@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:19:21 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:19:25 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:30:10 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	get_player(t_game *game)
 		j = 0;
 		while (j < game->map.col)
 		{
-			if (game->map.map[i][j] == 4)
+			if (game->map.map[i][j] == PLAYER)
 			{
 				game->player.x = j;
 				game->player.y = i;
@@ -35,37 +35,43 @@ static void	get_player(t_game *game)
 	}
 }
 
+static void	map_save(int *map, int *save, int *c_cnt, int *clear)
+{
+	if (*map != EXIT)
+	{
+		*save = EMPTY;
+		if (*map == COLLECTIBLE)
+		{
+			*c_cnt -= 1;
+		}
+	}
+	else
+	{
+		*save = EXIT;
+		if (*c_cnt == 0)
+			*clear = 1;
+	}
+}
+
 static void	map_modify(t_game *game, int dx, int dy)
 {
 	static int	save;
-	static int	cmd_cnt;
-	static int	clear_flag;
+	static int	clear;
+	int			next_x;
+	int			next_y;
 
-	if (clear_flag == 1)
+	next_x = game->player.x + dx;
+	next_y = game->player.y + dy;
+	if (clear == 1)
 		return ;
-	if (game->map.map[game->player.y + dy][game->player.x + dx] != 1)
+	if (game->map.map[next_y][next_x] != WALL)
 	{
 		game->map.map[game->player.y][game->player.x] = save;
-		if (game->map.map[game->player.y + dy][game->player.x + dx] != 3)
-		{
-			save = 0;
-			if (game->map.map[game->player.y + dy][game->player.x + dx] == 2)
-				game->c_cnt--;
-		}
-		else
-		{
-			save = 3;
-			if (game->c_cnt == 0)
-				clear_flag = 1;
-		}
-		game->map.map[game->player.y + dy][game->player.x + dx] = 4;
-		command_count_put(++cmd_cnt);
+		map_save(&game->map.map[next_y][next_x], &save, &game->c_cnt, &clear);
+		game->map.map[next_y][next_x] = PLAYER;
+		command_count_put();
 	}
-	if (clear_flag == 1)
-	{
-		game->map.map[game->player.y + dy][game->player.x + dx] = 3;
-		ft_putendl_fd("Teleported to the next map...!!", STDOUT_FILENO);
-	}
+	clear_check(clear, &game->map.map[next_y][next_x]);
 }
 
 int	deal_key(int key, t_game *game)
