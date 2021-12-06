@@ -21,6 +21,7 @@ int	main(int argc, char *argv[])
 
 	mlx_hook(game.win, DESTROY_NOTIFY, 1L<<17, &game_exit, &game);
 	mlx_hook(game.win, KEY_PRESS, 1L<<0, &deal_key, &game);
+	mlx_hook(game.win, 19, 1L<<0, &render_next_frame, &game);
 	command_count_put(0);
 	render_next_frame(&game);
 	mlx_loop(game.mlx);
