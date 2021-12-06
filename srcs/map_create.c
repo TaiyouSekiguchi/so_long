@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_create.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/06 15:21:15 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/06 15:22:46 by tsekiguc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static size_t	get_col_size(char *line)
@@ -18,16 +30,16 @@ static void	get_map_size_and_malloc(t_map *map, t_list *current)
 	map->col = get_col_size(current->content);
 	map->map = (int **)malloc(sizeof(int *) * map->row);
 	if (map->map == NULL)
-		my_error("Error\nmalloc error in map_create");
+		my_error("malloc error in map_create");
 }
 
 static void	col_len_check_and_malloc(t_map *map, t_list *current, int i)
 {
 	if (map->col != get_col_size(current->content))
-		my_error("Error\nmap is not recangle");
+		my_error("map is not recangle");
 	map->map[i] = (int *)malloc(sizeof(int) * map->col);
 	if (map->map[i] == NULL)
-		my_error("Error\nmalloc error in map_create");
+		my_error("malloc error in map_create");
 }
 
 static void	char_to_int(char c, int *map)
@@ -43,7 +55,7 @@ static void	char_to_int(char c, int *map)
 	else if (c == 'P')
 		*map = PLAYER;
 	else
-		my_error("Error\nError Character in map");
+		my_error("Error Character in map_create");
 }
 
 void	map_create(t_map *map, t_list *list)

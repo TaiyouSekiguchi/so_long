@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render_next_frame.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/06 15:23:31 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/06 15:24:54 by tsekiguc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	render_next_frame(t_game *game)
 {
 	size_t	i;
 	size_t	j;
-	unsigned int	color;
-
 
 	i = 0;
 	while (i < game->map.row)
