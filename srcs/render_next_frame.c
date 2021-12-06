@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:23:31 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:24:54 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:43:33 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@ int	render_next_frame(t_game *game)
 {
 	size_t	i;
 	size_t	j;
+	size_t	x;
+	size_t	y;
+	void	*img_tmp;
 
 	i = 0;
 	while (i < game->map.row)
 	{
+		y = i * TILE_SIZE;
 		j = 0;
 		while (j < game->map.col)
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->texs[game->map.map[i][j]].img, j * TILE_SIZE, i * TILE_SIZE);
+			x = j * TILE_SIZE;
+			img_tmp = game->texs[game->map.map[i][j]].img;
+			mlx_put_image_to_window(game->mlx, game->win, img_tmp, x, y);
 			j++;
 		}
 		i++;
 	}
-
 	return (0);
 }
