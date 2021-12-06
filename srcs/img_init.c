@@ -4,7 +4,7 @@ static void	do_mlx_xpm_file_to_image(t_img *tex, void *mlx, char *path)
 {
 	tex->img = mlx_xpm_file_to_image(mlx, path, &tex->width, &tex->height);
 	if (tex->img == NULL)
-		my_error("Error\nmlx_xpm_file_to_image is failed in img_init");
+		my_error("mlx_xpm_file_to_image is failed in img_init");
 }
 
 void	img_init(t_img *texs, void *mlx)

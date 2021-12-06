@@ -14,6 +14,7 @@
 
 # define DESTROY_NOTIFY 17
 # define KEY_PRESS 2
+# define MAP_NOTIFY 19
 # define NO_EVENT_MASK 0L
 
 # define KEY_ESC 0xff1b

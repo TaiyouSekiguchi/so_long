@@ -47,8 +47,8 @@ static void	map_modify(t_game *game, int dx, int dy)
 				clear_flag = 1;
 		}
 		game->map.map[game->player.y + dy][game->player.x + dx] = 4;
+		command_count_put(++cmd_cnt);
 	}
-	command_count_put(++cmd_cnt);
 	if (clear_flag == 1)
 	{
 		game->map.map[game->player.y + dy][game->player.x + dx] = 3;

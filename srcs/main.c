@@ -6,9 +6,9 @@ int	main(int argc, char *argv[])
 	t_game	game;
 
 	if (argc != 2)
-		my_error("Error\nUsaga: ./so_long file_name.ber");
+		my_error("Usaga: ./so_long file_name.ber");
 	if (!extension_check(argv[1]))
-		my_error("Error\nfile extension is not (*****.ber)");
+		my_error("File extension is not (*****.ber)");
 
 	read_file(&list, argv[1]);
 	map_create(&game.map, list);
@@ -17,11 +17,10 @@ int	main(int argc, char *argv[])
 
 	window_init(&game);
 	img_init(game.texs, game.mlx);
-	printf("game is %p\n", &game);
 
 	mlx_hook(game.win, DESTROY_NOTIFY, 1L<<17, &game_exit, &game);
 	mlx_hook(game.win, KEY_PRESS, 1L<<0, &deal_key, &game);
-	mlx_hook(game.win, 19, 1L<<0, &render_next_frame, &game);
+	mlx_hook(game.win, MAP_NOTIFY, 1L<<0, &render_next_frame, &game);
 	command_count_put(0);
 	render_next_frame(&game);
 	mlx_loop(game.mlx);
