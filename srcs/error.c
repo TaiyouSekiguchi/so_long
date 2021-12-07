@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 16:33:42 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 16:33:46 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:32:02 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	my_error(char *msg)
 
 void	printf_error(void)
 {
-	printf("Error\n%m\n");
+	ft_putendl_fd("Error", STDERR_FILENO);
+	printf("%m\n");
 	exit(1);
 }
