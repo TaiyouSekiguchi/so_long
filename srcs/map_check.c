@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:05 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:56:28 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:11:45 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	first_or_last_row_check(int *map, int col)
 	while (i < col)
 	{
 		if (map[i] != 1)
-			my_error("Error\nMap is not closed");
+			my_error("Map is not closed");
 		i++;
 	}
 }
@@ -28,17 +28,17 @@ static void	first_or_last_row_check(int *map, int col)
 static void	first_or_last_col_check(int *map, int col)
 {
 	if (map[0] != 1 || map[col - 1] != 1)
-		my_error("Error\nMap is not closed");
+		my_error("Map is not closed");
 }
 
 static void	count_check(int c_cnt, int e_cnt, int p_cnt)
 {
 	if (c_cnt < 1)
-		my_error("Error\nNo collectible in map");
+		my_error("No collectible in map");
 	if (e_cnt < 1)
-		my_error("Error\nNO exit in map");
+		my_error("NO exit in map");
 	if (p_cnt != 1)
-		my_error("Error\nPlayer is incorrect in map");
+		my_error("Player is incorrect in map");
 }
 
 static void	map_count(int map, int *c_cnt, int *e_cnt, int *p_cnt)
