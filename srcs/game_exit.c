@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:19:50 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:19:52 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:49:35 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	destroy_map(t_map *map)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (i < map->row)
@@ -31,7 +30,7 @@ static void	destroy_img(void *mlx, t_img *texs)
 	int	i;
 
 	i = 0;
-	while (i < 5)
+	while (i < 8)
 	{
 		mlx_destroy_image(mlx, texs[i].img);
 		i++;

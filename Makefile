@@ -20,7 +20,7 @@ SRCS			=	main.c\
 OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc
-#CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 INCLUDE			=	-I./include -I/usr/include -I./mlx_linux
 #LIBFT			=	-Llibft -lft
 MINI			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -36,10 +36,10 @@ all				:	$(SO_LONG)
 
 $(SO_LONG)		:	$(OBJS)
 					make -C libft
-					$(CC) $(OBJS) $(MINI) $(LIBFT) -o $@
+					$(CC) $(CFLAGS) $(OBJS) $(MINI) $(LIBFT) -o $@
 
 %.o				:	%.c
-					$(CC) $(INCLUDE) -O3 -c $< -o $@
+					$(CC) $(CFLAGS) $(INCLUDE) -O3 -c $< -o $@
 
 clean			:
 #					make clean -C libft

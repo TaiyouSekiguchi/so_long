@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:23:31 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:11:34 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:51:07 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,9 @@ static void	*get_img(t_game *game, int row, int col)
 	void		*ret;
 	t_img		*texs;
 	t_map		*map;
-	t_window	*win;
-	t_area		area;
 
 	texs = game->texs;
 	map = &game->map;
-	win = &game->window;
 	if (row >= map->row || col >= map->col)
 		ret = texs[WALL].img;
 	else

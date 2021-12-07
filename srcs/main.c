@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:18:33 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:37:24 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:31:54 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 	map_create(&game.map, list);
 	ft_lstclear(&list, free);
 	map_check(&game, 0, 0, 0);
-	get_player(&game);
+	get_player_position(&game);
 	window_init(&game);
 	img_init(game.texs, game.mlx);
 	mlx_hook(game.win, DESTROY_NOTIFY, 1L << 17, &game_exit, &game);

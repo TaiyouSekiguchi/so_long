@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:19:21 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:54:44 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:50:09 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	map_modify(t_game *game, int dx, int dy, int direct)
 		game->player.y = game->player.y + dy;
 		command_count_put();
 	}
-	clear_check(clear, &game->map.map[next_y][next_x]);
+	clear_check(game, clear, &game->map.map[next_y][next_x]);
 }
 
 int	deal_key(int key, t_game *game)
@@ -66,4 +66,5 @@ int	deal_key(int key, t_game *game)
 	else if (key == KEY_D)
 		map_modify(game, 1, 0, RIGHT);
 	render_next_frame(game, 0, 0);
+	return (0);
 }

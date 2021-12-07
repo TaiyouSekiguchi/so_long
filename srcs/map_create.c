@@ -6,15 +6,15 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:15 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:55:51 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:20:55 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static size_t	get_col_size(char *line)
+static int	get_col_size(char *line)
 {
-	size_t	i;
+	int	i;
 
 	if (line == NULL)
 		return (0);
@@ -30,16 +30,16 @@ static void	get_map_size_and_malloc(t_map *map, t_list *current)
 	map->col = get_col_size(current->content);
 	map->map = (int **)malloc(sizeof(int *) * map->row);
 	if (map->map == NULL)
-		my_error("malloc error in map_create");
+		my_error("Malloc error in map_create");
 }
 
 static void	col_len_check_and_malloc(t_map *map, t_list *current, int i)
 {
 	if (map->col != get_col_size(current->content))
-		my_error("map is not recangle");
+		my_error("Map is not rectangle");
 	map->map[i] = (int *)malloc(sizeof(int) * map->col);
 	if (map->map[i] == NULL)
-		my_error("malloc error in map_create");
+		my_error("Malloc error in map_create");
 }
 
 static void	char_to_int(char c, int *map)
@@ -73,7 +73,7 @@ void	map_create(t_map *map, t_list *list)
 		col_len_check_and_malloc(map, current, i);
 		j = 0;
 		tmp = (char *)current->content;
-		while (tmp[j] != '\n')
+		while (tmp[j] != '\n' && tmp[j] != '\0')
 		{
 			char_to_int(tmp[j], &map->map[i][j]);
 			j++;

@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:05 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 14:11:45 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:26:06 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	first_or_last_row_check(int *map, int col)
 	i = 0;
 	while (i < col)
 	{
-		if (map[i] != 1)
+		if (map[i] != WALL)
 			my_error("Map is not closed");
 		i++;
 	}
@@ -27,7 +27,7 @@ static void	first_or_last_row_check(int *map, int col)
 
 static void	first_or_last_col_check(int *map, int col)
 {
-	if (map[0] != 1 || map[col - 1] != 1)
+	if (map[0] != WALL || map[col - 1] != WALL)
 		my_error("Map is not closed");
 }
 

@@ -104,13 +104,13 @@ int		game_exit(t_game *game);
 int		deal_key(int key, t_game *game);
 int		render_next_frame(t_game *game, int x, int y);
 void	my_error(char *msg);
-void	printf_error(void);
+void	my_perror(void);
 void	map_create(t_map *map, t_list *list);
 void	map_put(t_map *map);
 void	map_check(t_game *game, int c_cnt, int e_cnt, int p_cnt);
 void	read_file(t_list **list, char *file_path);
 void	command_count_put(void);
-void	clear_check(int clear, int *finish_position);
-void	get_player(t_game *game);
+void	clear_check(t_game *game, int clear, int *finish_position);
+void	get_player_position(t_game *game);
 
 #endif
