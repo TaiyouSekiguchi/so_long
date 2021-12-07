@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/07 17:08:25 by tsekiguc          #+#    #+#              #
+#    Updated: 2021/12/07 17:08:59 by tsekiguc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SO_LONG			=	so_long
 SRCS			=	main.c\
 					window_init.c\
@@ -16,13 +28,11 @@ SRCS			=	main.c\
 					extension_check.c\
 					clear_check.c\
 					get_player.c
-
 OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 INCLUDE			=	-I./include -I/usr/include -I./mlx_linux
-#LIBFT			=	-Llibft -lft
 MINI			=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 LIBFT			=	-Llibft -lft
 RM				=	rm -f
