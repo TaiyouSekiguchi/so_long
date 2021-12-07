@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:25:00 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:11:54 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:19:27 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,10 @@ void	window_init(t_game *game)
 	int	max_row;
 	int	max_col;
 
-	if ((INT_MAX / TILE_SIZE < game->map.col)
-		|| (INT_MAX / TILE_SIZE < game->map.row))
-		my_error("size over in window_init");
-	
 	do_mlx_init(game);
-
 	mlx_get_screen_size(game->mlx, &width, &height);
 	max_row = height / TILE_SIZE;
 	max_col = width / TILE_SIZE;
-
-	printf("max row       is %d\n", max_row);
-	printf("max col       is %d\n", max_col);
-	printf("game->map.row is %d\n", game->map.row);
-	printf("game->map.col is %d\n", game->map.col);
 
 	if (game->map.row > max_row)
 	{
@@ -58,7 +48,6 @@ void	window_init(t_game *game)
 		height = game->map.row * TILE_SIZE;
 		game->window.row = game->map.row;
 	}
-
 	if (game->map.col > max_col)
 	{
 		width = max_col * TILE_SIZE;
@@ -69,6 +58,5 @@ void	window_init(t_game *game)
 		width = game->map.col * TILE_SIZE;
 		game->window.col = game->map.col;
 	}
-
 	do_mlx_new_window(game, width, height);
 }

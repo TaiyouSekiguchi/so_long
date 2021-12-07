@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:18:33 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 16:53:28 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:37:24 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.win, KEY_PRESS, 1L << 0, &deal_key, &game);
 	mlx_hook(game.win, MAP_NOTIFY, 1L << 0, &render_next_frame, &game);
 	command_count_put();
-	render_next_frame(&game);
+	render_next_frame(&game, 0, 0);
 	mlx_loop(game.mlx);
 	return (0);
 }

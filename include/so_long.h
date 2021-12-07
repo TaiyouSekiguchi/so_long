@@ -30,6 +30,9 @@
 # define TREASURE		"./texture/treasure.xpm"
 # define GOAL			"./texture/goal.xpm"
 # define HERO			"./texture/hero.xpm"
+# define NORTH			"./texture/north.xpm"
+# define EAST			"./texture/east.xpm"
+# define WEST			"./texture/west.xpm"
 
 typedef enum e_mapinfo
 {
@@ -51,6 +54,8 @@ typedef struct	s_player
 {
 	int			x;
 	int			y;
+	int			direct_x;
+	int			dirext_y;
 }				t_player;
 
 typedef struct	s_img
@@ -85,7 +90,7 @@ typedef struct	s_game
 	t_map			map;
 	t_player		player;
 	t_img			img;
-	t_img			texs[5];
+	t_img			texs[8];
 	t_window		window;
 	int				c_cnt;
 }				t_game;

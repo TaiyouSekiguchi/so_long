@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:20:34 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:20:53 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:35:27 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void	img_init(t_img *texs, void *mlx)
 	do_mlx_xpm_file_to_image(&texs[2], mlx, TREASURE);
 	do_mlx_xpm_file_to_image(&texs[3], mlx, GOAL);
 	do_mlx_xpm_file_to_image(&texs[4], mlx, HERO);
+	do_mlx_xpm_file_to_image(&texs[5], mlx, NORTH);
+	do_mlx_xpm_file_to_image(&texs[6], mlx, EAST);
+	do_mlx_xpm_file_to_image(&texs[7], mlx, WEST);
 }
