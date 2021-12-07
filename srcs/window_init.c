@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:25:00 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 11:19:27 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:26:57 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,34 @@ static void	do_mlx_new_window(t_game *game, int width, int height)
 		my_error("mlx_new_window failed in window_init");
 }
 
+static void	decide_width(t_game *game, int max_col, int *width)
+{
+	if (game->map.col > max_col)
+	{
+		*width = max_col * TILE_SIZE;
+		game->window.col = max_col;
+	}
+	else
+	{
+		*width = game->map.col * TILE_SIZE;
+		game->window.col = game->map.col;
+	}
+}
+
+static void	decide_height(t_game *game, int max_row, int *height)
+{
+	if (game->map.row > max_row)
+	{
+		*height = (max_row - 1) * TILE_SIZE;
+		game->window.row = max_row - 1;
+	}
+	else
+	{
+		*height = game->map.row * TILE_SIZE;
+		game->window.row = game->map.row;
+	}
+}
+
 void	window_init(t_game *game)
 {
 	int	width;
@@ -37,26 +65,7 @@ void	window_init(t_game *game)
 	mlx_get_screen_size(game->mlx, &width, &height);
 	max_row = height / TILE_SIZE;
 	max_col = width / TILE_SIZE;
-
-	if (game->map.row > max_row)
-	{
-		height = (max_row - 1) * TILE_SIZE;
-		game->window.row = max_row - 1;
-	}
-	else
-	{
-		height = game->map.row * TILE_SIZE;
-		game->window.row = game->map.row;
-	}
-	if (game->map.col > max_col)
-	{
-		width = max_col * TILE_SIZE;
-		game->window.col = max_col;
-	}
-	else
-	{
-		width = game->map.col * TILE_SIZE;
-		game->window.col = game->map.col;
-	}
+	decide_height(game, max_row, &height);
+	decide_width(game, max_col, &width);
 	do_mlx_new_window(game, width, height);
 }
