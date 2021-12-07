@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:15 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:22:46 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:55:51 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	char_to_int(char c, int *map)
 	else if (c == 'E')
 		*map = EXIT;
 	else if (c == 'P')
-		*map = PLAYER;
+		*map = DOWN;
 	else
 		my_error("Error Character in map_create");
 }

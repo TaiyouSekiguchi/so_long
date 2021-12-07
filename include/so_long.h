@@ -29,8 +29,8 @@
 # define FLOWER			"./texture/flower.xpm"
 # define TREASURE		"./texture/treasure.xpm"
 # define GOAL			"./texture/goal.xpm"
-# define HERO			"./texture/hero.xpm"
 # define NORTH			"./texture/north.xpm"
+# define SOUTH			"./texture/south.xpm"
 # define EAST			"./texture/east.xpm"
 # define WEST			"./texture/west.xpm"
 
@@ -40,7 +40,10 @@ typedef enum e_mapinfo
 	WALL,
 	COLLECTIBLE,
 	EXIT,
-	PLAYER,
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
 }			t_mapinfo;
 
 typedef struct s_map
@@ -54,8 +57,6 @@ typedef struct	s_player
 {
 	int			x;
 	int			y;
-	int			direct_x;
-	int			dirext_y;
 }				t_player;
 
 typedef struct	s_img

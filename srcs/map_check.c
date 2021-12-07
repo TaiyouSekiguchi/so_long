@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:05 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/06 15:21:09 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:56:28 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	map_count(int map, int *c_cnt, int *e_cnt, int *p_cnt)
 		*c_cnt += 1;
 	else if (map == EXIT)
 		*e_cnt += 1;
-	else if (map == PLAYER)
+	else if (map == DOWN)
 		*p_cnt += 1;
 }
 
