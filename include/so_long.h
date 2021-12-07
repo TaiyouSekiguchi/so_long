@@ -66,6 +66,18 @@ typedef struct	s_window
 	int			col;
 }				t_window;
 
+typedef struct	s_area
+{
+	int			x;
+	int			y;
+}				t_area;
+
+typedef struct	s_matrix
+{
+	int			row;
+	int			col;
+}				t_matrix;
+
 typedef struct	s_game
 {
 	void			*mlx;
@@ -84,7 +96,7 @@ void	window_init(t_game *game);
 void	img_init(t_img texs[], void *mlx);
 int		game_exit(t_game *game);
 int		deal_key(int key, t_game *game);
-int		render_next_frame(t_game *game);
+int		render_next_frame(t_game *game, int x, int y);
 void	my_error(char *msg);
 void	printf_error(void);
 void	map_create(t_map *map, t_list *list);

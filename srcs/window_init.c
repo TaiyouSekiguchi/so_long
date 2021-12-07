@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:25:00 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 09:37:16 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:11:54 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	window_init(t_game *game)
 	if (game->map.row > max_row)
 	{
 		height = (max_row - 1) * TILE_SIZE;
-		game->window.row = max_row;
+		game->window.row = max_row - 1;
 	}
 	else
 	{
