@@ -60,6 +60,12 @@ typedef struct	s_img
 	int			height;
 }				t_img;
 
+typedef struct	s_window
+{
+	int			row;
+	int			col;
+}				t_window;
+
 typedef struct	s_game
 {
 	void			*mlx;
@@ -68,6 +74,7 @@ typedef struct	s_game
 	t_player		player;
 	t_img			img;
 	t_img			texs[5];
+	t_window		window;
 	int				c_cnt;
 }				t_game;
 

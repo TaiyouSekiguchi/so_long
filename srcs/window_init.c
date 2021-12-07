@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:25:00 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 09:12:26 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/07 09:37:16 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,27 @@ void	window_init(t_game *game)
 	printf("game->map.row is %d\n", game->map.row);
 	printf("game->map.col is %d\n", game->map.col);
 
-
 	if (game->map.row > max_row)
+	{
 		height = (max_row - 1) * TILE_SIZE;
+		game->window.row = max_row;
+	}
 	else
+	{
 		height = game->map.row * TILE_SIZE;
+		game->window.row = game->map.row;
+	}
 
 	if (game->map.col > max_col)
+	{
 		width = max_col * TILE_SIZE;
+		game->window.col = max_col;
+	}
 	else
+	{
 		width = game->map.col * TILE_SIZE;
+		game->window.col = game->map.col;
+	}
 
 	do_mlx_new_window(game, width, height);
 }
