@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:15 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 16:20:55 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/08 10:28:13 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	get_map_size_and_malloc(t_map *map, t_list *current)
 	map->col = get_col_size(current->content);
 	map->map = (int **)malloc(sizeof(int *) * map->row);
 	if (map->map == NULL)
-		my_error("Malloc error in map_create");
+		my_perror();
 }
 
 static void	col_len_check_and_malloc(t_map *map, t_list *current, int i)
@@ -39,7 +39,7 @@ static void	col_len_check_and_malloc(t_map *map, t_list *current, int i)
 		my_error("Map is not rectangle");
 	map->map[i] = (int *)malloc(sizeof(int) * map->col);
 	if (map->map[i] == NULL)
-		my_error("Malloc error in map_create");
+		my_perror();
 }
 
 static void	char_to_int(char c, int *map)
