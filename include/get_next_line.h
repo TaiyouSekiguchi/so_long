@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsekiguc <tsekiguc@student.42tokyo.jp      +#+  +:+       +#+        */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/20 17:21:05 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/07/20 17:21:08 by tsekiguc         ###   ########.fr       */
+/*   Created: 2021/12/08 21:54:20 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/08 21:54:24 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE
+# ifndef
 #  define BUFFER_SIZE 1024
 # endif
 
-# define FD_SIZE 256
+# define READ 1
+# define END 0
+# define ERROR -1
 
 size_t	my_strlen(const char *s);
 char	*my_strchr(const char *s, char c);
 char	*my_strjoin(const char *s1, const char *s2, char c);
 char	*my_strdup(const char *s, char c);
-char	*get_next_line(int fd);
+int		get_next_line(int fd, char **line);
 
 #endif
