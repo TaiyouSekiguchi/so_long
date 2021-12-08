@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/08 23:18:51 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/08 23:18:56 by tsekiguc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -52,38 +64,38 @@ typedef struct s_map
 	int			col;
 }				t_map;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	int			x;
 	int			y;
 }				t_player;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void		*img;
 	int			width;
 	int			height;
 }				t_img;
 
-typedef struct	s_window
+typedef struct s_window
 {
 	int			row;
 	int			col;
 }				t_window;
 
-typedef struct	s_area
+typedef struct s_area
 {
 	int			x;
 	int			y;
 }				t_area;
 
-typedef struct	s_matrix
+typedef struct s_matrix
 {
 	int			row;
 	int			col;
 }				t_matrix;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void			*mlx;
 	void			*win;
