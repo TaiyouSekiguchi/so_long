@@ -10,7 +10,6 @@
 
 # include "mlx.h"
 # include "libft.h"
-# include "get_next_line.h"
 
 # define DESTROY_NOTIFY 17
 # define KEY_PRESS 2

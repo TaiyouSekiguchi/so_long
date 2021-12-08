@@ -6,28 +6,33 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:23:05 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/07 16:06:56 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/08 23:10:52 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "get_next_line.h"
 
 void	read_file(t_list **list, char *file_path)
 {
 	int		fd;
 	char	*line;
+	int		ret;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		my_perror();
 	*list = NULL;
-	line = get_next_line(fd);
-	if (line == NULL)
-		my_error("Empty file or gnl error");
-	while (line != NULL)
+	ret = get_next_line(fd, &line);
+	if (ret == ERROR)
+		my_error("gnl error");
+	while (ret > 0)
 	{
 		ft_lstadd_back(list, ft_lstnew(line));
-		line = get_next_line(fd);
+		ret = get_next_line(fd, &line);
+		if (ret == ERROR)
+			my_error("gnl error");
 	}
+	free(line);
 	close(fd);
 }

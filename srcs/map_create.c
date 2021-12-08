@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:21:15 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/08 10:28:13 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:08:21 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	get_col_size(char *line)
 	if (line == NULL)
 		return (0);
 	i = 0;
-	while (line[i] != '\n')
+	while (line[i] != '\0')
 		i++;
 	return (i);
 }

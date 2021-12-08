@@ -6,7 +6,7 @@
 /*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 21:54:20 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/08 21:54:24 by tsekiguc         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:57:39 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef
+# ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
 
