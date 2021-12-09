@@ -6,7 +6,7 @@
 #    By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 17:08:25 by tsekiguc          #+#    #+#              #
-#    Updated: 2021/12/09 15:24:37 by tsekiguc         ###   ########.fr        #
+#    Updated: 2021/12/09 15:26:34 by tsekiguc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,11 +53,11 @@ $(SO_LONG)		:	$(OBJS)
 					$(CC) $(CFLAGS) $(INCLUDE) -O3 -c $< -o $@
 
 clean			:
-#					make clean -C libft
+					make clean -C libft
 					$(RM) $(OBJS)
 
 fclean			:
-#					make fclean -C libft
+					make fclean -C libft
 					$(RM) $(OBJS) $(SO_LONG) 
 
 re				:	fclean all
