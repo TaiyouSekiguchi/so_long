@@ -6,7 +6,7 @@
 #    By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 17:08:25 by tsekiguc          #+#    #+#              #
-#    Updated: 2021/12/07 17:08:59 by tsekiguc         ###   ########.fr        #
+#    Updated: 2021/12/09 15:24:37 by tsekiguc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ vpath %.h include
 all				:	$(SO_LONG)
 
 $(SO_LONG)		:	$(OBJS)
+					make -C mlx_linux
 					make -C libft
 					$(CC) $(CFLAGS) $(OBJS) $(MINI) $(LIBFT) -o $@
 
