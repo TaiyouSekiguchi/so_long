@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 23:19:38 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/08 23:19:41 by tsekiguc         ###   ########.fr       */
+/*   Created: 2021/07/13 10:31:37 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/09 14:26:00 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ static int	save_check(char **line, char **save)
 	restart = my_strchr(*save, '\n') + 1;
 	tmp = my_strdup(restart, '\0');
 	if (tmp == NULL)
+	{
+		free(*line);
 		return (ERROR);
+	}
 	free(*save);
 	*save = tmp;
 	return (READ);

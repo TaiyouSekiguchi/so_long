@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsekiguc <tsekiguc@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tsekiguc <tsekiguc@student.42tokyo.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 23:19:53 by tsekiguc          #+#    #+#             */
-/*   Updated: 2021/12/08 23:19:55 by tsekiguc         ###   ########.fr       */
+/*   Created: 2021/07/13 10:32:16 by tsekiguc          #+#    #+#             */
+/*   Updated: 2021/12/09 14:24:46 by tsekiguc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
