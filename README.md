@@ -8,6 +8,9 @@
 
 ボード上に並べる場所がなくなったら引き分けです。
 
+![finish_img.png](https://user-images.githubusercontent.com/72925757/146101362-91d6b2cc-5ad6-4a8d-b878-e3dffdb06839.png)
+
+
 ## 実行ファイルの作成
 
 リポジトリをgit clone してください。
