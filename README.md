@@ -12,7 +12,9 @@
 
 リポジトリをgit clone してください。
 
-`git clone git@github.com:sunix2019/so_long.git`
+```shell
+git clone git@github.com:sunix2019/so_long.git`
+```
 
 git clone が成功したら、リポジトリの中で、"make"とコマンドを入力してください。
 make が成功したら、実行ファイル"yonmoku"が作成されています。
